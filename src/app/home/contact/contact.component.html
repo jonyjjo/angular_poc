@@ -1,0 +1,10 @@
+<div style="height: 100%;">
+  <section class="display-contact" *ngIf="contact$ | async as contact">
+      <mat-card style="height: 300px; width: 300px;">
+          <h1> {{ contact.name }} </h1>
+          <h2> ${{ contact.contactNo }} </h2>
+          <h3> ${{ contact.address }} </h3>
+          <h3> {{ contact.dateOfBirth | date }} </h3>
+      </mat-card>
+  </section>
+</div>

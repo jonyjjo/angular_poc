@@ -1,1 +1,36 @@
-<h1>Hello World</h1>
+<div style="padding: 20px;">
+  <div style="padding: 20px;">
+      <h2>Create contact</h2>
+      <form class="example-form">
+          <mat-form-field class="example-full-width">
+              <mat-label>Name</mat-label>
+              <input name='name' [(ngModel)]="newContact.name" matInput>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Phone Number</mat-label>
+            <input name='contactNo' [(ngModel)]="newContact.contactNo" matInput>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+              <mat-label>Address</mat-label>
+              <input name='address' [(ngModel)]="newContact.address" matInput>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+              <mat-label>Birth date</mat-label>
+              <input name='dateOfBirth' [(ngModel)]="newContact.dateOfBirth" matInput [matDatepicker]="picker">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <button (click)="addNewContact()" style="margin-left: 33%;" mat-raised-button color="primary">Add
+              Contact</button>
+          <!-- <button (click)="changeUser()" mat-raised-button color="secondary">Change User</button>
+          <button (click)="logout()" mat-raised-button color="secondary">Logout</button> -->
+      </form>
+  </div>
+  <mat-divider></mat-divider>
+  <div style="padding: 20px;">
+      <app-contact-list></app-contact-list>
+  </div>
+</div>
