@@ -10,6 +10,7 @@ import {
   tap,
 } from 'rxjs/operators';
 import { DataService } from 'src/app/Service/data.service';
+import { ContactService } from 'src/app/Service/contact.service';
 import {
   getContacts,
   getContactsSuccess,
@@ -27,7 +28,7 @@ export class ContactEffects {
     this.action$.pipe(
       ofType(getContacts),
       exhaustMap(() =>
-        this.dataService.getContacts().pipe(
+        this.contactService.getContacts().pipe(
           map((contacts) => getContactsSuccess(contacts)),
           catchError(() => EMPTY)
         )
@@ -37,11 +38,11 @@ export class ContactEffects {
 
   addContact$ = createEffect(() =>
     this.action$.pipe(
-      ofType(addContacts),
+      ofType(addContact),
       tap((contact) => console.log(contact)),
       concatMap(({ contact }) =>
-        this.dataService.addContacts(contact).pipe(
-          map((newContact) => addContactsSuccess(newContact)),
+        this.contactService.addContact(contact).pipe(
+          map((newContact) => addContactSuccess(newContact)),
           catchError(() => EMPTY)
         )
       )
@@ -52,7 +53,7 @@ export class ContactEffects {
     this.action$.pipe(
       ofType(deleteContact),
       mergeMap(({ contactId }) =>
-        this.dataService.deleteContact(contactId).pipe(
+        this.contactService.deleteContact(contactId).pipe(
           map(() => deleteContactSuccess(contactId)),
           catchError(() => EMPTY)
         )
@@ -64,13 +65,14 @@ export class ContactEffects {
     this.action$.pipe(
       ofType(updateContact),
       concatMap(({ contact }) =>
-        this.dataService.updateContacts(contact).pipe(
+        this.contactService.updateContact(contact).pipe(
           map(() => updateContactSuccess(contact)),
           catchError(() => EMPTY)
         )
       )
     )
   );
+  ContactService: any;
 
-  constructor(private action$: Actions, private dataService: DataService) {}
+  constructor(private action$: Actions, private contactService: ContactService) {}
 }

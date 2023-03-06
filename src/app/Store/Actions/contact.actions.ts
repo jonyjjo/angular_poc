@@ -18,10 +18,10 @@ export const addContactSuccess = createAction(
   (contact: Contact) => ({ contact })
 );
 
-// export const assignUser = createAction(
-//   '[User] assign user',
-//   (user: string) => ({ user })
-// );
+export const assignUser = createAction(
+  '[User] assign user',
+  (user: string) => ({ user })
+);
 
 export const deleteContact = createAction(
   '[Contact] Delete contact',
@@ -43,4 +43,4 @@ export const updateContactSuccess = createAction(
   (contact: Contact) => ({ contact })
 );
 
-// export const logout = createAction('[User] logout');
+export const logout = createAction('[User] logout');

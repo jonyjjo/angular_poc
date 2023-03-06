@@ -7,7 +7,7 @@ import { catchError, delay, map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
-export class DataService {
+export class ContactService {
   private url = 'api/contact/';
   constructor(private http: HttpClient) {}
 

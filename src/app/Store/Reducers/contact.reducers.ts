@@ -17,6 +17,7 @@ import {
 
 export interface ContactState {
   contacts: ReadonlyArray<Contact>;
+  user: Readonly<string>;
   router: RouterReducerState<any>;
 }
 

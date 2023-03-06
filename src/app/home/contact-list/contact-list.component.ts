@@ -15,14 +15,14 @@ import {
 @Component({
   selector: 'app-contact-list',
   templateUrl: './contact-list.component.html',
-  styleUrls: ['./contact-list.component.css'],
+  styleUrls: ['./contact-list.component.scss'],
 })
 export class ContactListComponent implements OnInit, OnDestroy {
   contacts$ = this.store.pipe(select(contactUserSelector));
   contacts: Contact[] | undefined;
   done = new Subject();
   selectedIndex: number = 0;
-  earning = 0;
+  contactNo = 0;
   constructor(private store: Store<ContactState>) {}
 
   ngOnInit(): void {
@@ -57,7 +57,7 @@ export class ContactListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.done.next();
+    // this.done.next();
     this.done.complete();
   }
 }

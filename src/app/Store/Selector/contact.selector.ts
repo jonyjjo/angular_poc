@@ -8,13 +8,13 @@ export const contactSelector = createSelector(
   (contacts: ReadonlyArray<Contact>) => contacts
 );
 
-// export const contactUserSelector = createSelector(
-//   (state: ContactState) => state.contacts,
-//   (state: ContactState) => state.user,
-//   (contacts: ReadonlyArray<Contact>, user: Readonly<string>) => {
-//     return contacts.filter((contact: Contact) => contact.userName === user);
-//   }
-// );
+export const contactUserSelector = createSelector(
+  (state: ContactState) => state.contacts,
+  (state: ContactState) => state.user,
+  (contacts: ReadonlyArray<Contact>, user: Readonly<string>) => {
+    return contacts.filter((contact: Contact) => contact.userName === user);
+  }
+);
 
 // export const greater = (amount: number) =>
 //   createSelector(contactSelector, (contacts) => {
