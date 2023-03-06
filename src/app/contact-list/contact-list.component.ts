@@ -2,15 +2,15 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { Contact } from '../../Models/contact.model';
-import { DataService } from '../../Service/data.service';
-import { deleteContact, updateContact } from '../../Store/Actions/contact.actions';
-import { ContactState } from '../../Store/Reducers/contact.reducers';
+import { Contact } from '../Models/contact.model';
+import { DataService } from '../Service/data.service';
+import { deleteContact, updateContact } from '../Store/Actions/contact.actions';
+import { ContactState } from '../Store/Reducers/contact.reducers';
 import {
   // greater,
   contactSelector,
   contactUserSelector,
-} from '../../Store/Selector/contact.selector';
+} from '../Store/Selector/contact.selector';
 
 @Component({
   selector: 'app-contact-list',

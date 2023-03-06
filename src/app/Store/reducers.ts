@@ -6,16 +6,16 @@ import {
   MetaReducer,
 } from '@ngrx/store';
 import { environment } from 'src/environments/environment';
-// import { logout } from './Actions/contact.actions';
+import { logout } from './Actions/contact.actions';
 import {
   contactReducer,
   ContactState,
-  // userReducer,
+  userReducer,
 } from './Reducers/contact.reducers';
 
 export const reducers: ActionReducerMap<ContactState> = {
   contacts: contactReducer,
-  // user: userReducer,
+  user: userReducer,
   router: routerReducer
 };
 

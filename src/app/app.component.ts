@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
 
   getAllContacts(): void {
     this.store.dispatch(getContacts());
-    this.store.dispatch(assignUser('Subrat'));
+    this.store.dispatch(assignUser('devUser'));
     // this.contactService.getContacts().subscribe((contacts: Contact[]) => {
     //   this.contacts = contacts;
     // });

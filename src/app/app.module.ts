@@ -4,9 +4,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ContactListComponent } from './home/contact-list/contact-list.component';
+import { ContactListComponent } from './contact-list/contact-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { MaterialModules } from './app.material.module';
+import { MaterialModules } from './app.material.module';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DataService } from './Service/data.service';
 import { ContactService } from './Service/contact.service';
@@ -20,7 +20,7 @@ import { ContactEffects } from './Store/Effects/contact.effects';
 import { reducers, metaReducers } from './Store/reducers';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { HomeComponent } from './home/home.component';
-import { ContactComponent } from './home/contact/contact.component';
+import { ContactComponent } from './contact/contact.component';
 import { RouterSerializer } from './Store/routerSerializer';
 
 @NgModule({
@@ -35,7 +35,7 @@ import { RouterSerializer } from './Store/routerSerializer';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    // MaterialModules,
+    MaterialModules,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(DataService),
     StoreModule.forRoot(reducers, {

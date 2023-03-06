@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
-import { Contact } from '../../Models/contact.model';
-import { ContactState } from '../../Store/Reducers/contact.reducers';
-import { contact } from '../../Store/Selector/contact.selector';
+import { Contact } from '../Models/contact.model';
+import { ContactState } from '../Store/Reducers/contact.reducers';
+import { contact } from '../Store/Selector/contact.selector';
 
 @Component({
   selector: 'app-contact',

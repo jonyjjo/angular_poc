@@ -9,7 +9,7 @@ import { Contact } from '../../Models/contact.model';
 import {
   addContact,
   addContactSuccess,
-  // assignUser,
+  assignUser,
   deleteContactSuccess,
   getContactsSuccess,
   updateContactSuccess,
@@ -41,8 +41,8 @@ export const contactReducer = createReducer(
   })
 );
 
-// const initialUserSate = '';
-// export const userReducer = createReducer(
-//   initialUserSate,
-//   on(assignUser, (state, { user }) => user)
-// );
+const initialUserSate = '';
+export const userReducer = createReducer(
+  initialUserSate,
+  on(assignUser, (state, { user }) => user)
+);
