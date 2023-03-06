@@ -23,10 +23,10 @@ export class HomeComponent implements OnInit {
 
   getAllContacts(): void {
     this.store.dispatch(getContacts());
-    // this.store.dispatch(assignUser('Subrat'));
-    // this.dataService.getContacts().subscribe((contacts: Contact[]) => {
-    //   this.contacts = contacts;
-    // });
+    this.store.dispatch(assignUser('devUser'));
+    this.dataService.getContacts().subscribe((contacts: Contact[]) => {
+      this.contacts = contacts;
+    });
   }
 
   addNewContacts(): void {

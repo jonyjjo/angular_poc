@@ -7,53 +7,53 @@ import { DataService } from '../../Service/data.service';
 import { deleteContact, updateContact } from '../../Store/Actions/contact.actions';
 import { ContactState } from '../../Store/Reducers/contact.reducers';
 import {
-  greater,
+  // greater,
   contactSelector,
   contactUserSelector,
-} from '../Store/Selector/movie.selector';
+} from '../../Store/Selector/contact.selector';
 
 @Component({
-  selector: 'app-movie-list',
-  templateUrl: './movie-list.component.html',
-  styleUrls: ['./movie-list.component.css'],
+  selector: 'app-contact-list',
+  templateUrl: './contact-list.component.html',
+  styleUrls: ['./contact-list.component.css'],
 })
-export class MovieListComponent implements OnInit, OnDestroy {
-  movies$ = this.store.pipe(select(movieUserSelector));
-  movies: Movie[];
+export class ContactListComponent implements OnInit, OnDestroy {
+  contacts$ = this.store.pipe(select(contactUserSelector));
+  contacts: Contact[] | undefined;
   done = new Subject();
-  selectedIndex: number = null;
+  selectedIndex: number = 0;
   earning = 0;
-  constructor(private store: Store<MovieState>) {}
+  constructor(private store: Store<ContactState>) {}
 
   ngOnInit(): void {
-    this.movies$
+    this.contacts$
       .pipe(takeUntil(this.done))
-      .subscribe((data) => (this.movies = JSON.parse(JSON.stringify(data))));
+      .subscribe((data) => (this.contacts = JSON.parse(JSON.stringify(data))));
     // setTimeout(() => {
-    //   this.movies$ = this.store.pipe(select(greater(2000)));
+    //   this.contacts$ = this.store.pipe(select(greater(2000)));
     // }, 5000);
   }
 
-  enableEdit(movie: Movie, index: number): void {
+  enableEdit(contact: Contact, index: number): void {
     this.selectedIndex = index;
-    this.earning = movie.earning;
+    // this.earning = contact.earning;
   }
 
   cancelEdit(): void {
-    this.selectedIndex = null;
+    this.selectedIndex = 0;
   }
 
   // update the earning from the input then dispatch update action
-  update(movie: Movie): void {
-    const m = { ...movie };
-    m.earning = this.earning;
+  update(contact: Contact): void {
+    const m = { ...contact };
+    // m.earning = this.earning;
     // dispatch action to update
-    this.store.dispatch(updateMovie(m));
-    this.selectedIndex = null;
+    this.store.dispatch(updateContact(m));
+    this.selectedIndex = 0;
   }
 
-  deleteMovie(movieId: number): void {
-    this.store.dispatch(deleteMovie(movieId));
+  deleteContact(contactId: number): void {
+    this.store.dispatch(deleteContact(contactId));
   }
 
   ngOnDestroy(): void {
